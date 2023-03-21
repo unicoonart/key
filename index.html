@@ -1,0 +1,33 @@
+<html>
+<head>
+	<title>keyboard</title>
+</head>
+<body>
+	<video id="myVideo" width="1080" height="1920">
+		<source src="forest.mp4" type="video/mp4">
+	</video>
+
+	<script>
+		var video = document.getElementById("myVideo");
+
+		window.addEventListener('keydown', function(e) {
+			if (e.keyCode === 71) { // 'g'키
+				video.play();
+			}
+		});
+
+		video.addEventListener('ended', function() {
+			video.currentTime = 0;
+			video.load();
+		});
+	</script>
+<style>
+    body {
+    background-color: black;
+    overflow: hidden;
+  }
+
+</style>
+
+</body>
+</html>

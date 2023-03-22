@@ -1,33 +1,35 @@
+<!DOCTYPE html>
 <html>
-<head>
-	<title>keyboard</title>
-</head>
-<body>
-	<video id="myVideo" width="1080" height="1920">
-		<source src="forest.mp4" type="video/mp4">
-	</video>
+  <head>
+    <title>Video Player</title>
+    <style>
+      /* 비디오를 가운데 정렬하기 위한 스타일 */
+      #video-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="video-container">
+      <video id="my-video" src="forest.mp4"></video>
+    </div>
+    <script>
+      var video = document.getElementById('my-video');
 
-	<script>
-		var video = document.getElementById("myVideo");
+      video.addEventListener('ended', function() {
+        video.currentTime = 0;
+        video.load(;)
+      });
 
-		window.addEventListener('keydown', function(e) {
-			if (e.keyCode === 71) { // 'g'키
-				video.play();
-			}
-		});
-
-		video.addEventListener('ended', function() {
-			video.currentTime = 0;
-			video.load();
-		});
-	</script>
-<style>
-    body {
-    background-color: black;
-    overflow: hidden;
-  }
-
-</style>
-
-</body>
+      window.addEventListener('keydown', function(e) {
+        if (e.KeyCode === 71) {
+          video.play();
+        }
+      });
+    </script>
+  </body>
 </html>
+
